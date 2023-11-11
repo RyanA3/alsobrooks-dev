@@ -50,40 +50,11 @@
           background-position: -500px;
         }
         100% {
-          background-position: 500px;
+          background-position: 1500px;
         }
       }
 
-      nav {
-        display: flex;
-        flex-direction: row;
-        max-width: 100%;
-        background-color: rgb(21, 115, 11);
-        color: white;
-        padding: 0 2em;
-        align-items: stretch;
-        justify-content: space-between;
-      }
-
-      .navlabels {
-        width: 100%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: left;
-      }
-
-      .navlabel {
-        position: relative;
-        height: 100%;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        font-weight: bold;
-        font-size: x-large;
-        color: rgb(255, 255, 255, 0.7);
+      .sheen {
         background: no-repeat;
         background-image: -webkit-linear-gradient(
           -20deg,
@@ -112,84 +83,17 @@
         );
         background-size: 400px 100px;
         background-clip: text;
-
-        animation: sheen 15s linear infinite;
-      }
-
-      .navlinks {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: right;
-      }
-
-      .navlink {
-        cursor: pointer;
-        color: white;
-
-        position: relative;
-        padding: 8px 2em;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        white-space: nowrap;
-      }
-
-      .navlink[current] {
-        border-bottom: 4px solid #eceff1;
-      }
-
-      .navlink[current]:hover {
-        border-bottom: 4px solid #ccc;
-      }
-
-      .navlink::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 0%;
-        height: 100%;
-        transition: all 0.2s;
-        border-bottom: 4px solid transparent;
-      }
-
-      .navlink:hover::before {
-        left: 0;
-        width: 100%;
-        border-radius: 0px;
-        border-bottom: 4px solid #eceff1;
-      }
-
-      .intro-article {
-        flex-grow: 1;
-        display: flex;
-        flex-flow: column;
-      }
-
-      .intro-section {
-        flex-grow: 1;
-        width: 100%;
-        height: 100%;
-        padding: 1em 0;
-        background-image: url("img/aboutbg.jpg");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        margin: 0px;
       }
 
       body {
-        position: relative;
         width: 100vw;
-        max-width: 100vw;
         min-height: 100vh;
         color: rgba(0, 0, 0, 0.912);
         font-family: Roboto, Helvetica, Arial, sans-serif;
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-flow: column;
       }
+
       a {
         text-decoration: none;
       }
@@ -199,9 +103,93 @@
         color: rgb(0, 0, 0, 0.4);
         font-weight: bold;
       }
+
       li {
         padding: 4px 8px;
         font-size: large;
+      }
+
+      nav {
+        max-width: 100%;
+        background-color: rgb(21, 115, 11);
+        color: white;
+        padding: 12px 2em;
+      }
+
+      nav > div {
+        display: flex;
+        flex-direction: row;
+        animation: sheen 30s linear infinite;
+        align-items: stretch;
+        justify-content: space-between;
+      }
+
+      .navlabels {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+      }
+
+      .navlabel {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        font-weight: bold;
+        font-size: xx-large;
+        color: rgb(255, 255, 255, 0.7);
+      }
+
+      .navlinks {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+      }
+
+      .navlink {
+        height: 100%;
+        width: auto;
+        cursor: pointer;
+        color: rgb(255, 255, 255, 0.6);
+        transition: color 0.1s linear;
+
+        position: relative;
+        white-space: nowrap;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .navlink[current] {
+        font-weight: bold;
+        color: rgb(255, 255, 255, 0.9);
+      }
+
+      .navlink:hover {
+        color: rgb(255, 255, 255, 0.9);
+      }
+
+      .intro-article {
+        display: flex;
+        flex-flow: column;
+        min-height: max-content;
+        height: 100%;
+      }
+
+      .intro-section {
+        padding: 1em 0;
+        background-image: url("img/aboutbg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0px;
       }
 
       @media (max-width: 600px) {
@@ -209,39 +197,15 @@
           padding-right: 1em;
         }
 
+        nav {
+          flex-direction: column;
+          padding: 2em 8px;
+          gap: 1em;
+        }
+
         .navlinks {
           flex-direction: column;
-        }
-
-        .navlink {
-          border: none;
-          border-left: 4px solid transparent;
-        }
-
-        .navlink[current] {
-          border: none;
-          border-left: 4px solid #eceff1;
-        }
-
-        .navlink[current]:hover {
-          border: none;
-          border-left: 4px solid #ccc;
-        }
-
-        .navlink::before {
-          left: 0;
-          height: 0%;
-          top: 50%;
-          border: none;
-          border-left: 4px solid transparent;
-        }
-
-        .navlink:hover::before {
-          left: 0;
-          top: 0;
-          height: 100%;
-          border: none;
-          border-left: 4px solid #eceff1;
+          gap: 1em;
         }
       }
     </style>
@@ -250,16 +214,18 @@
   <body>
     <header>
       <nav>
-        <div class="navlabels">
-          <a href="https://alsobrooks.dev">
-            <div class="navlabel">ALSOBROOKS.DEV</div>
-          </a>
-        </div>
+        <div class="sheen">
+          <div class="navlabels">
+            <a href="https://alsobrooks.dev">
+              <div class="navlabel">ALSOBROOKS.DEV</div>
+            </a>
+          </div>
 
-        <div class="navlinks">
-          <a href="index.html" class="navlink" current>About Me</a>
-          <a href="travel.html" class="navlink">Travel</a>
-          <a href="projects.html" class="navlink">Projects</a>
+          <div class="navlinks">
+            <a href="index.html" class="navlink" current>About Me</a>
+            <a href="travel.html" class="navlink">Travel</a>
+            <a href="projects.html" class="navlink">Projects</a>
+          </div>
         </div>
       </nav>
     </header>
