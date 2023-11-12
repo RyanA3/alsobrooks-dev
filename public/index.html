@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>alsobrooks.dev</title>
+    <link rel="stylesheet" href="styles/nav.css" />
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.5.2/firebase-app-compat.js"></script>
@@ -45,46 +46,6 @@
         }
       }
 
-      @keyframes sheen {
-        0% {
-          background-position: -500px;
-        }
-        100% {
-          background-position: 1500px;
-        }
-      }
-
-      .sheen {
-        background: no-repeat;
-        background-image: -webkit-linear-gradient(
-          -20deg,
-          transparent 0%,
-          transparent 19%,
-          #fff 20%,
-          #fff 22%,
-          transparent 23%,
-          transparent 26%,
-          #fff 27%,
-          #fff 32%,
-          transparent 33%,
-          transparent 34%,
-          #fff 35%,
-          #fff 36%,
-          transparent 37%,
-          transparent 45%,
-          #fff 46%,
-          #fff 52%,
-          transparent 53%,
-          transparent 79%,
-          #fff 85%,
-          #fff 89%,
-          transparent 90%,
-          transparent 100%
-        );
-        background-size: 400px 100px;
-        background-clip: text;
-      }
-
       body {
         width: 100vw;
         min-height: 100vh;
@@ -109,74 +70,6 @@
         font-size: large;
       }
 
-      nav {
-        max-width: 100%;
-        background-color: rgb(21, 115, 11);
-        color: white;
-        padding: 12px 2em;
-      }
-
-      nav > div {
-        display: flex;
-        flex-direction: row;
-        animation: sheen 30s linear infinite;
-        align-items: stretch;
-        justify-content: space-between;
-      }
-
-      .navlabels {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: stretch;
-      }
-
-      .navlabel {
-        position: relative;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        font-weight: bold;
-        font-size: xx-large;
-        color: rgb(255, 255, 255, 0.7);
-      }
-
-      .navlinks {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 2em;
-      }
-
-      .navlink {
-        height: 100%;
-        width: auto;
-        cursor: pointer;
-        color: rgb(255, 255, 255, 0.6);
-        transition: color 0.1s linear;
-
-        position: relative;
-        white-space: nowrap;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .navlink[current] {
-        font-weight: bold;
-        color: rgb(255, 255, 255, 0.9);
-      }
-
-      .navlink:hover {
-        color: rgb(255, 255, 255, 0.9);
-      }
-
       .intro-article {
         display: flex;
         flex-flow: column;
@@ -190,23 +83,6 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 0px;
-      }
-
-      @media (max-width: 600px) {
-        .navlabel {
-          padding-right: 1em;
-        }
-
-        nav {
-          flex-direction: column;
-          padding: 2em 8px;
-          gap: 1em;
-        }
-
-        .navlinks {
-          flex-direction: column;
-          gap: 1em;
-        }
       }
     </style>
   </head>
@@ -222,9 +98,10 @@
           </div>
 
           <div class="navlinks">
-            <a href="index.html" class="navlink" current>About Me</a>
+            <a href="index.html" class="navlink" current>Home</a>
             <a href="travel.html" class="navlink">Travel</a>
             <a href="projects.html" class="navlink">Projects</a>
+            <a href="about.html" class="navlink">About Me</a>
           </div>
         </div>
       </nav>
