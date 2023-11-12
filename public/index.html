@@ -60,7 +60,7 @@
         background-color: red;
         display: grid;
         grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto auto auto;
         align-self: center;
         justify-self: center;
         gap: 2em;
@@ -73,7 +73,7 @@
       }
 
       .wide {
-        grid-column: span 2;
+        grid-column: span var(--width);
       }
     </style>
   </head>
@@ -98,8 +98,9 @@
 
     <div class="content">
       <article>
+        <section class="wide" style="--width: 3">Hi</section>
         <section>S1</section>
-        <section class="wide">S2</section>
+        <section class="wide" style="--width: 2">S2</section>
         <section>S3</section>
         <section>S4</section>
         <section>S5</section>
