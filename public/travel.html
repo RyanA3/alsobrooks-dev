@@ -10,10 +10,7 @@
 
     <script defer src="/__/firebase/10.5.2/firebase-app-compat.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=false"></script>
-
-    <style media="screen"></style>
   </head>
-
   <body>
     <nav>
       <div class="sheen">
@@ -24,32 +21,12 @@
         </div>
 
         <div class="navlinks">
-          <a href="index.html" class="navlink" current>Home</a>
-          <a href="travel.html" class="navlink">Travel</a>
+          <a href="index.html" class="navlink">Home</a>
+          <a href="travel.html" class="navlink" current>Travel</a>
           <a href="projects.html" class="navlink">Projects</a>
           <a href="about.html" class="navlink">About Me</a>
         </div>
       </div>
     </nav>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const loadEl = document.querySelector("#load");
-
-        try {
-          let app = firebase.app();
-          let features = ["messaging", "remoteConfig", "performance"].filter(
-            (feature) => typeof app[feature] === "function"
-          );
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(
-            ", "
-          )}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent =
-            "Error loading the Firebase SDK, check the console.";
-        }
-      });
-    </script>
   </body>
 </html>

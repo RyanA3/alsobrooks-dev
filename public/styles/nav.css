@@ -42,10 +42,10 @@ nav {
   max-width: 100%;
   background-image: -webkit-linear-gradient(
     -30deg,
-    rgb(15, 90, 7) 0%,
+    rgb(15, 70, 7) 0%,
     rgb(21, 115, 11) 20%,
     rgb(21, 115, 11) 30%,
-    rgb(15, 90, 7) 100%
+    rgb(15, 80, 7) 100%
   );
   color: white;
   padding: 12px 2em;
@@ -82,6 +82,7 @@ nav > div {
 
 .navlabel:hover {
   color: rgb(255, 255, 255, 0.8);
+  transition: color 0.2s;
 }
 
 .navlinks {
