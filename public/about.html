@@ -8,6 +8,68 @@
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="icon" href="img/favicon.png" />
 
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        background-image: url("img/portrait-wide.jpg");
+        background-size: cover;
+      }
+
+      h1,
+      p {
+        margin: 0;
+        max-width: 99%;
+      }
+
+      h1 {
+        padding: 0.5em 0;
+      }
+
+      hr {
+        width: 100%;
+        color: #eee;
+      }
+
+      nav {
+        grid-column-start: 1;
+        grid-column-end: two;
+      }
+
+      article {
+        margin: 0 4em;
+        align-self: center;
+        justify-self: center;
+        padding: 2em 3em;
+        border-radius: 20px;
+        color: #eee;
+        background-color: rgb(40, 120, 30, 0.6);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        max-width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          grid-column-start: auto;
+          grid-column-end: auto;
+        }
+      }
+    </style>
+
     <script defer src="/__/firebase/10.5.2/firebase-app-compat.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=false"></script>
   </head>
@@ -24,9 +86,33 @@
           <a href="index.html" class="navlink">Home</a>
           <a href="travel.html" class="navlink">Travel</a>
           <a href="projects.html" class="navlink">Projects</a>
-          <a href="about.html" class="navlink" current>About Me</a>
+          <a href="about.html" class="navlink" current>About</a>
         </div>
       </div>
     </nav>
+
+    <article>
+      <header>
+        <h1>About ALSOBROOKS.DEV</h1>
+      </header>
+      <section>
+        <p>Hello</p>
+        <p>
+          I'm Ryan, and this is my portfolio and blog website! I love going
+          backpacking and camping, and have decided to document the places that
+          I go for my own records, but also so others can discover them as well.
+        </p>
+        <p>
+          I'm also looking to get into the Software Engineering field. This website doubles as a
+          portfolio for this reason; It's also nice to have a centralized place
+          to share my projects.
+        </p>
+        <p>
+          Please feel free to contact me if you'd like to get in touch.<br />
+          <a name="email" href="mailto:ryan@alsobrooks.dev">ryan@alsobrooks.dev</span>
+        </p>
+      </section>
+    </article>
+    <div></div>
   </body>
 </html>
