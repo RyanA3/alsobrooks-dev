@@ -36,6 +36,7 @@
   );
   background-size: 600px 100%;
   background-clip: text;
+  -webkit-background-clip: text;
 }
 
 nav {
