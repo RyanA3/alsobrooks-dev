@@ -121,17 +121,16 @@ nav > div {
 
 @media (max-width: 600px) {
   .navlabel {
-    padding-right: 1em;
+    padding: 0 1em;
   }
 
   nav > div {
     flex-direction: column;
-    padding: 2em 8px;
+    padding: 1em 8px;
     gap: 1em;
   }
 
   .navlinks {
-    flex-direction: column;
-    gap: 1em;
+    flex-direction: row;
   }
 }
