@@ -1,4 +1,5 @@
 import * as mat4 from "../modules/esm/mat4.js";
+import { Camera } from "./camera.js";
 const vertShader = `
 #version 100
 
@@ -47,8 +48,7 @@ async function main() {
   const vbo = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
   const vertices = [
-    -0.25, -0.25, -1.0, 1, 0, 0, 0, 0.25, -1.0, 0, 1, 0, 0.25, -0.25, -1.0, 0,
-    0, 1,
+    -0.5, -0.5, -1.0, 1, 0, 0, 0, 0.5, -1.0, 0, 1, 0, 0.5, -0.5, -1.0, 0, 0, 1,
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
@@ -72,7 +72,7 @@ async function main() {
   //Initialize camera
   const projLoc = gl.getUniformLocation(shader, "projectionMatrix");
   const modelViewLoc = gl.getUniformLocation(shader, "modelViewMatrix");
-  setCam(gl, 45, 0, 0, 0, projLoc, modelViewLoc);
+  const cam = new Camera(gl, projLoc, modelViewLoc, 90, 0, 0, 0);
 
   var r = 0.0;
   while (true) {
@@ -81,7 +81,9 @@ async function main() {
     //Render
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    setCam(gl, 45, 0, 0, Math.sin(r / 100.0) - 1, projLoc, modelViewLoc);
+    cam.setPosition(0, 0, Math.sin(r / 100.0) - 1);
+    cam.upload();
+
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 3);
 
     await sleep(20);
@@ -90,24 +92,6 @@ async function main() {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function setCam(gl, fov, tx, ty, tz, projLoc, modelViewLoc) {
-  //Generate projection matrix
-  const fieldOfView = (fov * Math.PI) / 180;
-  const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-  const zNear = 0.1;
-  const zFar = 100.0;
-  const projectionMatrix = mat4.create();
-  mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
-
-  //Generate modelview matrix
-  const modelViewMatrix = mat4.create();
-  mat4.translate(modelViewMatrix, modelViewMatrix, [tx, ty, tz]);
-
-  //Update uniforms
-  gl.uniformMatrix4fv(projLoc, false, projectionMatrix);
-  gl.uniformMatrix4fv(modelViewLoc, false, modelViewMatrix);
 }
 
 //Loads a vertex and fragment shader, compiles and links them
