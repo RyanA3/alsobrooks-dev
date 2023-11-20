@@ -38,6 +38,22 @@
     <link rel="canonical" href="https://alsobrooks.dev/" />
 
     <style media="screen">
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        padding: 0;
+        background: none;
+        contain: layout;
+        max-width: 30vw;
+        aspect-ratio: 1/2;
+        border: 4px solid rgb(25, 110, 25);
+      }
+
       .content {
         background: radial-gradient(
             circle at 100% 10%,
@@ -50,23 +66,24 @@
             transparent 50%
           );
         width: 100%;
-        height: 100%;
         display: grid;
         align-items: center;
         justify-content: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
         color: rgb(230, 230, 230, 1);
+        justify-self: center;
+      }
+
+      .ifolist {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 2em;
+        padding: 4em 4em;
       }
 
       article {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
-        align-self: center;
-        justify-self: center;
-        gap: 2em;
-      }
-
-      section {
         background: conic-gradient(
           at 0 0,
           rgb(25, 110, 25, 0.55),
@@ -74,6 +91,9 @@
         );
         padding: 1em 2em;
         border-radius: 20px;
+      }
+
+      section {
       }
     </style>
   </head>
@@ -97,16 +117,34 @@
     </nav>
 
     <div class="content">
-      <article>
-        <section class="wide" style="--width: 3">
+      <div class="ifolist">
+        <article class="wide" style="--width: 3">
           This website is currently being worked on. Expect more soon!
-        </section>
-        <section></section>
-        <section class="wide" style="--width: 2"></section>
-        <section></section>
-        <section></section>
-        <section></section>
-      </article>
+        </article>
+        <article></article>
+        <article class="wide" style="--width: 2"></article>
+        <article>
+          <header>
+            <h2>Family Image Server</h2>
+            <h3>>> 2023</h3>
+            <h3>Yup</h3>
+          </header>
+          <section>
+            <img src="img/familyimageserver.jpg" />
+          </section>
+        </article>
+        <article></article>
+        <article>
+          <header>
+            <h2>Pixel Painter</h2>
+            <h3>>> Software-Rendered Pixel Paint Program</h3>
+            <h3>>> 2018-2019</h3>
+          </header>
+          <section>
+            <img src="img/pixelpainter-small.png" />
+          </section>
+        </article>
+      </div>
     </div>
 
     <script>
