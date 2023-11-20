@@ -1,7 +1,26 @@
 import * as mat4 from "../modules/esm/mat4.js";
+import * as vec3 from "../modules/esm/vec3.js";
 
 export class Camera {
-  constructor(gl, projectionMatrixLoc, modelViewMatrixLoc, fov, x, y, z) {
+  /**
+   * Creates a new camera object
+   * @param {WebGL2RenderingContext} gl
+   * @param {WebGLUniformLocation} projectionMatrixLoc
+   * @param {WebGLUniformLocation} modelViewMatrixLoc
+   * @param {Number} fov
+   * @param {vec3} pos
+   * @param {vec3} forward
+   * @param {vec3} up
+   */
+  constructor(
+    gl,
+    projectionMatrixLoc,
+    modelViewMatrixLoc,
+    fov,
+    pos,
+    forward,
+    up
+  ) {
     this.gl = gl;
 
     //For uniforms
@@ -9,9 +28,9 @@ export class Camera {
     this.modelViewMatrixLoc = modelViewMatrixLoc;
 
     //For position
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    this.pos = pos;
+    this.forward = forward;
+    this.up = up;
     this.updateModelViewMatrix();
 
     //For perspective
@@ -24,10 +43,27 @@ export class Camera {
     this.upload();
   }
 
-  setPosition(x, y, z) {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+  /**
+   * @param {vec3} pos
+   */
+  setPosition(pos) {
+    this.pos = pos;
+    this.updateModelViewMatrix();
+  }
+
+  /**
+   * @param {vec3} target
+   */
+  setTarget(target) {
+    this.forward = target;
+    this.updateModelViewMatrix();
+  }
+
+  /**
+   * @param {vec3} up
+   */
+  setUp(up) {
+    this.up = up;
     this.updateModelViewMatrix();
   }
 
@@ -46,11 +82,8 @@ export class Camera {
   //Regenerates model view matrix
   updateModelViewMatrix() {
     this.modelViewMatrix = mat4.create();
-    mat4.translate(this.modelViewMatrix, this.modelViewMatrix, [
-      this.x,
-      this.y,
-      this.z,
-    ]);
+    mat4.translate(this.modelViewMatrix, this.modelViewMatrix, this.pos);
+    mat4.lookAt(this.modelViewMatrix, this.pos, this.forward, this.up);
   }
 
   //Uploads matrix data to gpu (updates the uniforms)

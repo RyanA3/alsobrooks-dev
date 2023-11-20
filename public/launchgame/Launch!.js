@@ -1,4 +1,5 @@
-import * as mat4 from "../modules/esm/mat4.js";
+import * as vec3 from "../modules/esm/vec3.js";
+
 import { Camera } from "./camera.js";
 const vertShader = `
 #version 100
@@ -72,7 +73,19 @@ async function main() {
   //Initialize camera
   const projLoc = gl.getUniformLocation(shader, "projectionMatrix");
   const modelViewLoc = gl.getUniformLocation(shader, "modelViewMatrix");
-  const cam = new Camera(gl, projLoc, modelViewLoc, 90, 0, 0, 0);
+  var pos = vec3.create();
+  pos.x = 1;
+  pos.y = 0;
+  pos.z = 2;
+  var forward = vec3.create();
+  forward.x = 0;
+  forward.y = 0;
+  forward.z = -1;
+  var up = vec3.create();
+  up.x = 0;
+  up.y = 1;
+  up.z = 0;
+  const cam = new Camera(gl, projLoc, modelViewLoc, 90, pos, forward, up);
 
   var r = 0.0;
   while (true) {
@@ -81,7 +94,8 @@ async function main() {
     //Render
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    cam.setPosition(0, 0, Math.sin(r / 100.0) - 1);
+    pos.z = Math.sin(r / 100.0) - 1;
+    cam.setPosition(pos);
     cam.upload();
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 3);

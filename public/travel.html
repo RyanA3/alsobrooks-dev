@@ -38,6 +38,9 @@
     <link rel="canonical" href="https://alsobrooks.dev/travel.html" />
 
     <style media="screen">
+      h1 {
+        text-align: center;
+      }
       h2,
       h3 {
         padding: 0;
@@ -45,22 +48,19 @@
       }
 
       .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        gap: 2em;
         padding: 4em 4em;
       }
 
       article {
-        background: conic-gradient(
-          at -5% 4.75em,
-          rgb(80, 80, 255, 0.55) 0deg,
-          rgb(10, 25, 110, 0.55) 87deg,
-          rgb(25, 110, 25, 0.55) 91deg,
-          rgb(5, 50, 5, 0.55) 180deg
-        );
+        background-color: rgb(25, 110, 25, 0.55);
         border-radius: 20px;
         color: white;
+        height: 100%;
+        width: 100%;
       }
 
       header {
@@ -73,6 +73,15 @@
       section {
         padding: 2em 3em;
         padding-top: 1em;
+      }
+
+      header {
+        background: linear-gradient(
+          180deg,
+          rgb(25, 25, 110, 0.15) 0%,
+          rgb(25, 25, 110, 0.15) 90%,
+          rgb(25, 110, 25, 0.15) 100%
+        );
       }
 
       li {
@@ -99,22 +108,40 @@
     </nav>
 
     <div class="content">
-      <article>
-        <header>
-          <h2>North East Shore of Lake Superior</h2>
-        </header>
-        <section>
-          <h3>Itinerary</h3>
-          <ul>
-            <li>St. Ignace</li>
-            <li>Sault Ste. Marie</li>
-            <li>Crescent Lake Trail</li>
-            <li>Agawa Bay Campground</li>
-            <li>Wawa</li>
-            <li>Orphan Lake Trail</li>
-          </ul>
-        </section>
-      </article>
+      <h1 class="wide" style="--width: 3">Trips Worth Going Again</h1>
+
+      <a href="travel/east-superior.html">
+        <article>
+          <header>
+            <h2>Lake Superior's East Shore</h2>
+            <h3>>> Road Trip</h3>
+          </header>
+          <section>
+            <h3>Itinerary</h3>
+            <ul>
+              <li>St. Ignace</li>
+              <li>Sault Ste. Marie</li>
+              <li>Crescent Lake Trail</li>
+              <li>Agawa Bay Campground</li>
+              <li>Wawa</li>
+              <li>Orphan Lake Trail</li>
+            </ul>
+          </section>
+        </article>
+      </a>
+
+      <a href="travel/manistee-pathway.html">
+        <article>
+          <header>
+            <h2>Manistee River Pathway</h2>
+            <h3>>> Backpacking</h3>
+          </header>
+          <section>
+            <h3>Description</h3>
+            <p>A backpacking trip in NW lower Michigan</p>
+          </section>
+        </article>
+      </a>
     </div>
   </body>
 </html>
