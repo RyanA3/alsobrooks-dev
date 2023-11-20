@@ -1,4 +1,5 @@
 import * as vec3 from "../modules/esm/vec3.js";
+import * as mat4 from "../modules/esm/mat4.js";
 
 import { Camera } from "./camera.js";
 const vertShader = `
@@ -6,12 +7,13 @@ const vertShader = `
 
 attribute vec3 aPos;
 attribute vec3 aColor;
-uniform mat4 modelViewMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 modelMatrix;
 uniform mat4 projectionMatrix;
 varying vec3 oColor;
 
 void main() {
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(aPos, 1);
+    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(aPos, 1);
     oColor = aColor;
 }
 
@@ -72,20 +74,16 @@ async function main() {
 
   //Initialize camera
   const projLoc = gl.getUniformLocation(shader, "projectionMatrix");
-  const modelViewLoc = gl.getUniformLocation(shader, "modelViewMatrix");
-  var pos = vec3.create();
-  pos.x = 1;
-  pos.y = 0;
-  pos.z = 2;
-  var forward = vec3.create();
-  forward.x = 0;
-  forward.y = 0;
-  forward.z = -1;
-  var up = vec3.create();
-  up.x = 0;
-  up.y = 1;
-  up.z = 0;
-  const cam = new Camera(gl, projLoc, modelViewLoc, 90, pos, forward, up);
+  const viewLoc = gl.getUniformLocation(shader, "viewMatrix");
+  const modelLoc = gl.getUniformLocation(shader, "modelMatrix");
+  var pos = vec3.fromValues(0.0, 0.0, 0.0);
+  var forward = vec3.fromValues(0.0, 0.0, -1.0);
+  vec3.normalize(forward, forward);
+  var up = vec3.fromValues(0.0, 1.0, 0.0);
+  const cam = new Camera(gl, projLoc, viewLoc, 90, pos, forward, up);
+
+  const modelMatrix = mat4.create();
+  gl.uniformMatrix4fv(modelLoc, false, modelMatrix);
 
   var r = 0.0;
   while (true) {
@@ -94,7 +92,7 @@ async function main() {
     //Render
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    pos.z = Math.sin(r / 100.0) - 1;
+    pos = vec3.fromValues(0.0, 0.0, Math.sin(r / 100.0) + 0.51);
     cam.setPosition(pos);
     cam.upload();
 

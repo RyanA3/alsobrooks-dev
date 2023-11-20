@@ -6,32 +6,24 @@ export class Camera {
    * Creates a new camera object
    * @param {WebGL2RenderingContext} gl
    * @param {WebGLUniformLocation} projectionMatrixLoc
-   * @param {WebGLUniformLocation} modelViewMatrixLoc
+   * @param {WebGLUniformLocation} viewMatrixLoc
    * @param {Number} fov
    * @param {vec3} pos
    * @param {vec3} forward
    * @param {vec3} up
    */
-  constructor(
-    gl,
-    projectionMatrixLoc,
-    modelViewMatrixLoc,
-    fov,
-    pos,
-    forward,
-    up
-  ) {
+  constructor(gl, projectionMatrixLoc, viewMatrixLoc, fov, pos, forward, up) {
     this.gl = gl;
 
     //For uniforms
     this.projectionMatrixLoc = projectionMatrixLoc;
-    this.modelViewMatrixLoc = modelViewMatrixLoc;
+    this.viewMatrixLoc = viewMatrixLoc;
 
     //For position
     this.pos = pos;
     this.forward = forward;
     this.up = up;
-    this.updateModelViewMatrix();
+    this.updateViewMatrix();
 
     //For perspective
     this.fov = (fov * Math.PI) / 180; //Convert to radians
@@ -48,7 +40,7 @@ export class Camera {
    */
   setPosition(pos) {
     this.pos = pos;
-    this.updateModelViewMatrix();
+    this.updateViewMatrix();
   }
 
   /**
@@ -56,7 +48,7 @@ export class Camera {
    */
   setTarget(target) {
     this.forward = target;
-    this.updateModelViewMatrix();
+    this.updateViewMatrix();
   }
 
   /**
@@ -64,7 +56,7 @@ export class Camera {
    */
   setUp(up) {
     this.up = up;
-    this.updateModelViewMatrix();
+    this.updateViewMatrix();
   }
 
   //Regenerates projection matrix
@@ -80,10 +72,11 @@ export class Camera {
   }
 
   //Regenerates model view matrix
-  updateModelViewMatrix() {
-    this.modelViewMatrix = mat4.create();
-    mat4.translate(this.modelViewMatrix, this.modelViewMatrix, this.pos);
-    mat4.lookAt(this.modelViewMatrix, this.pos, this.forward, this.up);
+  updateViewMatrix() {
+    this.viewMatrix = mat4.create();
+    var target = vec3.create();
+    vec3.add(target, this.pos, this.forward);
+    mat4.lookAt(this.viewMatrix, this.pos, target, this.up);
   }
 
   //Uploads matrix data to gpu (updates the uniforms)
@@ -93,10 +86,6 @@ export class Camera {
       false,
       this.projectionMatrix
     );
-    this.gl.uniformMatrix4fv(
-      this.modelViewMatrixLoc,
-      false,
-      this.modelViewMatrix
-    );
+    this.gl.uniformMatrix4fv(this.viewMatrixLoc, false, this.viewMatrix);
   }
 }
