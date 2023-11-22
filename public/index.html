@@ -86,6 +86,27 @@
         overflow: hidden;
       }
 
+      .ifo-header {
+        grid-column: span 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 4em;
+      }
+
+      .ifo-header-text > p {
+        font-size: x-large;
+        opacity: 0;
+        transition: opacity;
+        transition-duration: 0.35s;
+      }
+
+      .ifo-header-text:hover > p {
+        opacity: 100;
+        transition: opacity;
+        transition-duration: 0.35s;
+      }
+
       .ifo-text {
         position: absolute;
         display: flex;
@@ -116,6 +137,17 @@
         transition-duration: 0.35s;
       }
 
+      .ifo-header-text {
+        opacity: 100%;
+        justify-content: start;
+        padding-top: 10%;
+        height: calc(86.5% - 20px);
+      }
+
+      .ifo-header-text {
+        font-size: xx-large;
+      }
+
       article {
         background: conic-gradient(
           at 0 0,
@@ -130,11 +162,21 @@
         .ifolist {
           grid-template-columns: 1fr 1fr;
         }
+
+        .ifo-header {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-column: span 2;
+        }
       }
 
       @media (max-width: 600px) {
         .ifolist {
           grid-template-columns: 1fr;
+        }
+
+        .ifo-header {
+          grid-column: span 1;
         }
       }
     </style>
@@ -160,9 +202,30 @@
 
     <div class="content">
       <div class="ifolist">
+        <div class="ifo-header">
+          <div class="ifo">
+            <a href="travel.html">
+              <img src="img/travel-header.png" />
+              <div class="ifo-text ifo-header-text">
+                <h2>Travel</h2>
+                <p>Looking for adventure?</p>
+              </div>
+            </a>
+          </div>
+          <div class="ifo">
+            <img src="img/project-header-2.png" />
+            <a href="projects.html">
+              <div class="ifo-text ifo-header-text ifo-header-project-text">
+                <h2>Projects</h2>
+                <p>Looking for my work?</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <div class="ifo">
           <img src="img/familyimageserver.png" />
-          <a href="aaa.html">
+          <a href="projects/image-server.html">
             <div class="ifo-text">
               <div>
                 <h2>Custom Image Server</h2>
@@ -180,7 +243,26 @@
 
         <div class="ifo">
           <img src="img/pixelpainter.png" />
-          <div class="ifo-text">HI</div>
+          <a href="projects/pixel-painter.html">
+            <div class="ifo-text">
+              <h2>Pixel Painter</h2>
+              <i>2019</i>
+              <p>
+                A software-rendered pixelated paint program running on a custom
+                game engine in Java. I built this project when I was first
+                becoming interested in game engine development.
+              </p>
+            </div>
+          </a>
+        </div>
+
+        <div class="ifo">
+          <img src="img/placeholder.png" />
+          <div class="ifo-text">
+            <h2>Placeholder</h2>
+            <i>In the future</i>
+            <p>Something will be here in the future</p>
+          </div>
         </div>
       </div>
     </div>
