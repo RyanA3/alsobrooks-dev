@@ -101,13 +101,15 @@
         transition-duration: 0.35s;
       }
 
-      .ifo-header-text:hover > p {
+      .ifo-header-text:hover > p,
+      .ifo-header-text:focus > p {
         opacity: 100;
-        transition: opacity;
+        transition: opacity, background-color;
         transition-duration: 0.35s;
       }
 
       .ifo-text {
+        color: white;
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -118,8 +120,8 @@
         width: calc(100% - 20px);
         height: calc(100% - 20px);
         opacity: 0%;
-        background-color: transparent;
-        transition: background-color opacity;
+        background-color: rgb(0, 0, 0, 0);
+        transition: background-color, opacity;
         transition-duration: 0.35s;
         text-align: center;
       }
@@ -129,11 +131,12 @@
         padding: 1.5em 2em;
       }
 
-      .ifo-text:hover {
+      .ifo-text:hover,
+      .ifo-text:focus {
         opacity: 100%;
         background-color: rgb(0, 0, 0, 0.8);
         backdrop-filter: blur(4px);
-        transition: background-color opacity;
+        transition: background-color, opacity;
         transition-duration: 0.35s;
       }
 
@@ -202,65 +205,56 @@
       <div class="ifolist">
         <div class="ifo-header">
           <div class="ifo">
-            <a href="travel.html">
-              <img src="img/travel-header.png" />
-              <div class="ifo-text ifo-header-text">
-                <h2>Travel</h2>
-                <p>Looking for adventure?</p>
-              </div>
+            <img src="img/travel-header.png" />
+            <a class="ifo-text ifo-header-text" href="travel.html">
+              <h2>Travel</h2>
+              <p>Looking for adventure?</p>
             </a>
           </div>
           <div class="ifo">
             <img src="img/project-header-2.png" />
-            <a href="projects.html">
-              <div class="ifo-text ifo-header-text ifo-header-project-text">
-                <h2>Projects</h2>
-                <p>Looking for my work?</p>
-              </div>
+            <a class="ifo-text ifo-header-text" href="projects.html">
+              <h2>Projects</h2>
+              <p>Looking for my work?</p>
             </a>
           </div>
         </div>
 
         <div class="ifo">
           <img src="img/familyimageserver.png" />
-          <a href="projects/image-server.html">
-            <div class="ifo-text">
-              <div>
-                <h2>Custom Image Server</h2>
-                <i>2023</i>
-              </div>
-              <p>
-                A lightweight custom server software designed for managing large
-                amounts of images on my family's home network. The primary
-                purpose of this software is to detect and remove image
-                duplicates.
-              </p>
+          <a class="ifo-text" href="projects/image-server.html">
+            <div>
+              <h2>Custom Image Server</h2>
+              <i>2023</i>
             </div>
+            <p>
+              A lightweight custom server software designed for managing large
+              amounts of images on my family's home network. The primary purpose
+              of this software is to detect and remove image duplicates.
+            </p>
           </a>
         </div>
 
         <div class="ifo">
           <img src="img/pixelpainter.png" />
-          <a href="projects/pixel-painter.html">
-            <div class="ifo-text">
-              <h2>Pixel Painter</h2>
-              <i>2019</i>
-              <p>
-                A software-rendered pixelated paint program running on a custom
-                game engine in Java. I built this project when I was first
-                becoming interested in game engine development.
-              </p>
-            </div>
+          <a class="ifo-text" href="projects/pixel-painter.html">
+            <h2>Pixel Painter</h2>
+            <i>2019</i>
+            <p>
+              A software-rendered pixelated paint program running on a custom
+              game engine in Java. I built this project when I was first
+              becoming interested in game engine development.
+            </p>
           </a>
         </div>
 
         <div class="ifo">
           <img src="img/placeholder.png" />
-          <div class="ifo-text">
+          <a class="ifo-text">
             <h2>Placeholder</h2>
             <i>In the future</i>
             <p>Something will be here in the future</p>
-          </div>
+          </a>
         </div>
       </div>
     </div>
