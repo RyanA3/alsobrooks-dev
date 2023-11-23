@@ -91,7 +91,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
-        gap: 4em;
+        gap: 2.5em;
       }
 
       .ifo-header-text > p {
@@ -165,9 +165,14 @@
         }
 
         .ifo-header {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .ifo-header {
           grid-template-columns: 1fr;
           grid-template-rows: 1fr 1fr;
-          grid-column: span 2;
         }
       }
 
