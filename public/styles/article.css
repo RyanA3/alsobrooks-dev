@@ -1,15 +1,79 @@
+.content {
+  padding: 3% 5%;
+  background-color: rgb(240, 240, 240);
+}
+
 article {
-  width: 100%;
-  min-height: 100%;
-  padding: 3% 0;
+  padding: 2%;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgb(150, 200, 150);
 }
 
 section {
-  padding: 0 10%;
+  padding-top: 1em;
+}
+
+section,
+header {
   font-size: larger;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 4px solid rgb(20, 100, 20);
+  padding: 0.25em 0;
 }
 
 h1 {
   font-size: xx-large;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+h1,
+h2 {
   margin: 0;
+}
+
+.article-nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+.article-nav > a,
+.article-nav > a:visited {
+  color: rgb(20, 140, 40);
+  transition: color 0.2s;
+}
+
+.article-nav > a:hover,
+.article-nav > a:visited:hover {
+  color: rgb(90, 180, 90);
+  transition: color 0.2s;
+}
+
+@media (max-width: 800px) {
+  .content {
+    padding: 0;
+    background: none;
+  }
+
+  article {
+    padding: 5% 5%;
+    border: none;
+  }
+
+  .article-nav {
+    justify-content: start;
+    gap: 0.35em 1em;
+  }
 }
