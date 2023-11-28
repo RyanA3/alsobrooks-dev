@@ -4,6 +4,12 @@ article {
   padding: 3% 0;
 }
 
-article > * {
+section {
   padding: 0 10%;
+  font-size: larger;
+}
+
+h1 {
+  font-size: xx-large;
+  margin: 0;
 }

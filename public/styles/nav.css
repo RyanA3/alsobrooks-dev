@@ -39,7 +39,7 @@
   -webkit-background-clip: text;
 }
 
-nav {
+#site-nav {
   max-width: 100%;
   background-image: -webkit-linear-gradient(
     -30deg,
@@ -52,7 +52,7 @@ nav {
   padding: 12px 2em;
 }
 
-nav > div {
+#site-nav > div {
   display: flex;
   flex-direction: row;
   animation: sheen 30s linear infinite;
@@ -119,11 +119,16 @@ nav > div {
 }
 
 @media (max-width: 600px) {
-  .navlabel {
-    padding: 0 1em;
+  #site-nav {
+    padding: 0;
   }
 
-  nav > div {
+  .navlabel {
+    padding: 0;
+    font-size: 150%;
+  }
+
+  #site-nav > div {
     flex-direction: column;
     padding: 1em 8px;
     gap: 1em;
@@ -131,5 +136,7 @@ nav > div {
 
   .navlinks {
     flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0;
   }
 }
