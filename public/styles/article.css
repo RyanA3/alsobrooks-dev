@@ -1,16 +1,16 @@
 .content {
-  padding: 3% 5%;
+  padding: 3% 15%;
   background-color: rgb(240, 240, 240);
 }
 
 article {
-  padding: 2%;
+  padding: 5%;
   background-color: white;
   box-shadow: 0px 0px 10px rgb(150, 200, 150);
 }
 
 section {
-  padding-top: 1em;
+  padding-top: 2em;
 }
 
 section,
@@ -50,15 +50,23 @@ h2 {
 }
 
 .article-nav > a,
-.article-nav > a:visited {
+p > a,
+.article-nav > a:visited,
+p > a:visited {
   color: rgb(20, 140, 40);
   transition: color 0.2s;
 }
 
 .article-nav > a:hover,
-.article-nav > a:visited:hover {
+p > a:hover,
+.article-nav > a:visited:hover,
+p > a:visited:hover {
   color: rgb(90, 180, 90);
   transition: color 0.2s;
+}
+
+img {
+  float: var(--direction);
 }
 
 @media (max-width: 800px) {
@@ -75,5 +83,10 @@ h2 {
   .article-nav {
     justify-content: start;
     gap: 0.35em 1em;
+  }
+
+  img {
+    float: none;
+    display: block;
   }
 }

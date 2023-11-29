@@ -65,14 +65,107 @@
           <nav class="article-nav">
             <a href="#overview">Overview</a>
             <a href="#functionality">Functionality</a>
+            <a href="#demo">Demo</a>
             <a href="#technical">Technical Details</a>
+            <a
+              target="_blank"
+              href="https://github.com/RyanA3/PixelPainter/tree/master/PixelPainter"
+              >Source Code</a
+            >
           </nav>
         </header>
         <section id="overview" name="Overview">
+          <h2>What is it?</h2>
           <p>
-            Pixel Painter is a Java-based, software-rendered clone of the paint
-            program. It was developed in 2019 and was the result of me getting
-            my feet wet in game engine development for the first time.
+            <img src="../img/pixelpainter.png" style="--direction: right" />
+            To put it simply, Pixel Painter is a clone of your standard paint
+            program. It has simple low-res graphics and a small variety of ways
+            to interact with the canvas. This project was the cumulation of all
+            the knowledge I had gained from the smaller game-dev focused
+            projects I had made whilst building this engine. The only libraries
+            I used for the project was the built-in java library for creating a
+            window context, and the library for loading raw image data. I worked
+            on PixelPainter for a couple months in 2019, during my Sophmore year
+            in highschool.
+            <br /><br />
+            I decided to go with a the low-res theme for the project for a
+            couple reasons. First off, it was much easier for me to make the
+            icons and textures for everything that I needed when I only had a
+            couple pixels to be dealing with (I'm not very good at art).
+            Additionally, I also had some experience with making low-res
+            textures from when I used to make Minecraft resource packs and
+            scripts for fun.
+          </p>
+        </section>
+        <section id="functionality" name="Functionality">
+          <h2>What can it do?</h2>
+          <p>
+            The painter hosts a lot of the common features you'd find in any
+            paint program. It has the following tools for writing pixels to the
+            canvas: Pen, Circle, Dot, and Line. It also has a size option that
+            changes the line width for the line and circle tool, and the brush
+            size for the pen tool. There is also a limited color selector that
+            lets you choose from 8 different colors. One of these colors (the
+            background color) can be used with any tool to erase parts of the
+            canvas. There is also a transluscent blue color that can be blended
+            with the canvas. Drawing is done by clicking on the canvas. Dragging
+            the cursor allows you to adjust the size or direction of the object
+            you are drawing.
+            <br /><br />
+            PixelPainter also has an undo and redo tool in the top right, which
+            can be used to undo or redo any edits to the canvas. There is a
+            reset button to clear the canvas. The painter also has limited
+            saving functionality. The save button opens a moveable window with
+            an option to confirm whether or not you want to save the painting. I
+            planned to add additional functionlity to this window, such as
+            choosing a file name and directory, but never got around to it. In
+            its current state the save button saves images to a file in the same
+            directory as the program.
+          </p>
+        </section>
+        <section id="demo" name="Demo">
+          <h2>Demo</h2>
+          <br />
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/RriEH5sUjzQ?si=XsbigRmk3g7Auyjs"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </section>
+        <section id="technical" name="Technical Details">
+          <h2>How was it made?</h2>
+          <p>
+            I mentioned previously that PixelPainter is built using a custom
+            game engine. This game engine was built in Java, but I converted and
+            added a lot of features to support this project. Namely, the UI
+            system was extended a lot during this project to allow for the use
+            of radio buttons, toggles, and draggable window popups. I also added
+            a completely custom event system, which was used extensively by both
+            the new UI elements, as well as the history (undo and redo) system.
+            This event system was heavily inspired by the spigot api, which is
+            used to create plugins for Minecraft servers.
+            <br /><br />
+            This project is completely software-rendered, as it pre-dates my
+            experience with OpenGL (and other graphics libraries). As such, all
+            rendering is handled by a simple array of colors, and a bunch of
+            functions that can rasterize pixels onto that array. The renderer
+            can draw dots, lines, circles, squares, images, and custom fonts.
+            <br /><br />
+            This project was heavily inspired by the
+            <a
+              href="https://www.youtube.com/playlist?list=PL7dwpoQd3a8j6C9p5LqHzYFSkii6iWPZF"
+              target="_blank"
+              >Majoolwip 2D Java Game engine series</a
+            >. Their series provided an extensive amount of direction that was
+            extremely helpful when I first became interested in game
+            development. The engine is inspired by the one built in Majoolwip's
+            series, and wouldn't have been possible without it. If you're
+            interested in building your own software-rendered game engine, I
+            would heavily recommend this series.
           </p>
         </section>
       </article>
