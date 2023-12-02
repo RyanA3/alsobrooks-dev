@@ -21,8 +21,8 @@ header {
 header {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: end;
   border-bottom: 4px solid rgb(20, 100, 20);
   padding: 0.25em 0;
@@ -31,7 +31,6 @@ header {
 h1 {
   font-size: xx-large;
   flex-grow: 1;
-  flex-shrink: 1;
 }
 
 h1,
@@ -41,11 +40,10 @@ h2 {
 
 .article-nav {
   display: flex;
-  justify-content: end;
+  justify-content: start;
   align-items: center;
   gap: 1em;
   flex-wrap: wrap;
-  flex-grow: 1;
   flex-shrink: 2;
 }
 
