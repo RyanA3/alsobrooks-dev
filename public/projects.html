@@ -38,19 +38,99 @@
     <link rel="canonical" href="https://alsobrooks.dev/projects.html" />
 
     <style>
+      .content {
+        padding: 3% 15%;
+        background-color: rgb(240, 240, 240);
+      }
+
+      .project-list {
+        padding: 5%;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgb(150, 200, 150);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto);
+        gap: 2em;
+      }
+
+      .project-list > a {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+        align-items: center;
+        box-shadow: 0px 0px 5px rgb(150, 200, 150);
+        background-color: white;
+        transition: box-shadow 0.5s;
+      }
+
+      .project-list > a:hover {
+        box-shadow: 0px 0px 20px rgb(150, 200, 150);
+        transition: box-shadow 0.5s;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      h2 {
+        margin: 0;
+        color: black;
+        font-size: x-large;
+        padding: 0 3%;
+      }
+
       p {
-        text-align: center;
+        color: black;
+        padding: 0 3%;
+        margin: 0;
+        font-size: large;
       }
 
       p > a,
       p > a:visited {
-        color: rgb(20, 20, 200);
+        color: rgb(20, 140, 40);
+        transition: color 0.2s;
       }
 
       p > a:hover,
-      p > a:active,
       p > a:visited:hover {
-        color: rgb(80, 80, 250);
+        color: rgb(90, 180, 90);
+        transition: color 0.2s;
+      }
+
+      @media (max-width: 1000px) {
+        .content {
+          padding: 0;
+          background: none;
+        }
+
+        .project-list {
+          padding: 5% 5%;
+          border: none;
+        }
+
+        img {
+          float: none;
+          display: block;
+          contain: inherit;
+          width: 99%;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .img {
+          height: 50%;
+          width: auto;
+        }
+
+        .project-list > a {
+          grid-template-rows: auto auto;
+          grid-template-columns: auto;
+        }
+
+        .project-list > a > div {
+          padding: 1em;
+        }
       }
     </style>
   </head>
@@ -72,12 +152,34 @@
       </div>
     </nav>
 
-    <main>
-      <p>
-        There's nothing here yet!<br />Expect more soon. If you're looking for
-        my portfolio, you can still find the old one
-        <a href="https://floatingpointers.web.app/alsobrooks.html">here</a>
-      </p>
-    </main>
+    <div class="content">
+      <main class="project-list">
+        <h1>My Projects</h1>
+        <a href="projects/image-server.html">
+          <img src="img/familyimageserver.png" />
+          <div>
+            <h2>Custom Image Server</h2>
+            <p>
+              <i>2023</i><br /><br />
+              A lightweight custom server software designed for managing large
+              amounts of images on my family's home network. The primary purpose
+              of this software is to detect and remove image duplicates.
+            </p>
+          </div>
+        </a>
+        <a href="projects/pixel-painter.html">
+          <img src="img/pixelpainter.png" />
+          <div>
+            <h2>PixelPainter</h2>
+            <p>
+              <i>2019</i><br /><br />
+              A software-rendered pixelated paint program running on a custom
+              game engine in Java. I built this project when I was first
+              becoming interested in game engine development.
+            </p>
+          </div>
+        </a>
+      </main>
+    </div>
   </body>
 </html>
