@@ -87,6 +87,17 @@
         max-width: 100%;
       }
 
+      p > a,
+      p > a:visited {
+        color: rgb(200, 200, 200);
+        transition: color 0.25s;
+      }
+      p > a:hover,
+      p > a:visited:hover {
+        color: white;
+        transition: color 0.25s;
+      }
+
       @media (max-width: 600px) {
         body {
           grid-template-columns: 1fr;
@@ -138,9 +149,14 @@
         </p>
         <p>
           Please feel free to contact me<br />
-          <a name="email" href="mailto:ryan@alsobrooks.dev"
-            >ryan@alsobrooks.dev</a
-          >
+          <a name="email" href="mailto:ryan@alsobrooks.dev">
+            ryan@alsobrooks.dev </a
+          ><br /><br />
+
+          Some other places you can find me<br />
+          <a href="https://github.com/RyanA3">Github</a><br />
+          <a href="https://www.linkedin.com/in/ryanalsobrooks/">LinkedIn</a
+          ><br />
         </p>
       </section>
     </article>
