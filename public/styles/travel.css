@@ -55,9 +55,4 @@ a {
   .trips-container {
     grid-template-columns: 1fr;
   }
-
-  .content {
-    background-color: white;
-    padding: 0;
-  }
 }
