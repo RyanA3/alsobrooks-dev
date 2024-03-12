@@ -63,16 +63,46 @@ p > a:visited:hover {
   transition: color 0.2s;
 }
 
-img {
+.float-img {
   max-width: 100%;
   float: var(--direction);
-  padding: 0 1em;
+  margin: 1em;
+  box-shadow: 0px 0px 20px rgb(120, 200, 120);
+}
+
+.image-subtitled {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 20px rgb(150, 200, 150);
+  padding-bottom: 0.5em;
+}
+
+.image-subtitled > img {
+  max-width: 100%;
+  box-shadow: 0px 0px 15px rgb(150, 200, 150);
+}
+
+.image-subtitled > p {
+  padding: 0.5em;
+  color: gray;
+  margin: 0;
+  text-align: center;
+}
+
+.center {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 iframe {
   max-width: 100%;
   width: 560px;
   height: 315px;
+  box-shadow: 0px 0px 20px rgb(120, 200, 120);
   aspect-ratio: 3/2;
 }
 
