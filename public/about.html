@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>alsobrooks.dev</title>
+    <title>About alsobrooks.dev</title>
     <link rel="stylesheet" href="styles/nav.css" />
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="icon" href="img/favicon.png" />
@@ -26,13 +26,17 @@
       property="og:description"
       content="This website is the personal portfolio and blog of Ryan Alsobrooks."
     />
-    <meta name="og:url" property="og:url" content="https://alsobrooks.dev" />
+    <meta
+      name="og:url"
+      property="og:url"
+      content="https://alsobrooks.dev/about.html"
+    />
     <meta
       name="og:image"
       property="og:image"
       content="https://alsobrooks.dev/img/favicon.png"
     />
-    <link rel="canonical" href="https://alsobrooks.dev/" />
+    <link rel="canonical" href="https://alsobrooks.dev/about.html" />
 
     <style>
       body {
@@ -87,6 +91,17 @@
         max-width: 100%;
       }
 
+      p > a,
+      p > a:visited {
+        color: rgb(200, 200, 200);
+        transition: color 0.25s;
+      }
+      p > a:hover,
+      p > a:visited:hover {
+        color: white;
+        transition: color 0.25s;
+      }
+
       @media (max-width: 600px) {
         body {
           grid-template-columns: 1fr;
@@ -138,9 +153,14 @@
         </p>
         <p>
           Please feel free to contact me<br />
-          <a name="email" href="mailto:ryan@alsobrooks.dev"
-            >ryan@alsobrooks.dev</a
-          >
+          <a name="email" href="mailto:ryan@alsobrooks.dev">
+            ryan@alsobrooks.dev </a
+          ><br /><br />
+
+          Some other places you can find me<br />
+          <a href="https://github.com/RyanA3">Github</a><br />
+          <a href="https://www.linkedin.com/in/ryanalsobrooks/">LinkedIn</a
+          ><br />
         </p>
       </section>
     </article>

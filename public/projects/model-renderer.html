@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>alsobrooks.dev</title>
+    <title>My Custom Game Engine</title>
     <link rel="stylesheet" href="../styles/nav.css" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/article.css" />
@@ -24,7 +24,7 @@
       has first-person controllable camera, and renders light sources
       using the Phong lighting model."
     />
-    <meta name="og:title" property="og:title" content="PixelPainter" />
+    <meta name="og:title" property="og:title" content="Custom Game Engine" />
     <meta
       name="og:description"
       property="og:description"
@@ -32,7 +32,11 @@
       has first-person controllable camera, and renders light sources
       using the Phong lighting model."
     />
-    <meta name="og:url" property="og:url" content="https://alsobrooks.dev" />
+    <meta
+      name="og:url"
+      property="og:url"
+      content="https://alsobrooks.dev/projects/model-renderer.html"
+    />
     <meta
       name="og:image"
       property="og:image"
@@ -76,25 +80,45 @@
           </nav>
         </header>
         <section id="overview" name="Overview">
-          <h2></h2>
+          <h2>An Overview</h2>
           <p>
-            This project is an OpenGL-based game engine that I have been working on in my freetime. 
-            I recently expanded the scope of this project to encompass a game engine, since I liked working on it so much. 
-            I'm looking forward to developing a couple of simple 3d games using this engine. 
-            <br><br>
-            When I began working on this project, I mostly followed an online graphics programming course (<a href="https://learnopengl.com/">LearnOpenGL</a>)
-            to get started. Now I am adding features as I see fit; Some recent additions include a terrain renderer and height sampler for collision. 
-            I recently completed my second semester of physics, and am looking forward to apply that knowledge when I implement the physics system. 
-            In particular, I plan on implementing force fields for modeling things like gravitational and magnetic fields (Similar to what's done in 
-            <a href="https://www.mariowiki.com/Gravity_field">Super Mario Galaxy</a>).
+            This project is an OpenGL-based game engine that I have been working
+            on in my freetime. I recently expanded the scope of this project to
+            encompass a game engine, since I liked working on it so much. I'm
+            looking forward to developing a couple of simple 3d games using this
+            engine.
+            <br /><br />
+            When I began working on this project, I mostly followed an online
+            graphics programming course (<a href="https://learnopengl.com/"
+              >LearnOpenGL</a
+            >) to get started. Now I am adding features as I see fit; Some
+            recent additions include a terrain renderer and height sampler for
+            collision. I recently completed my second semester of physics, and
+            am looking forward to apply that knowledge when I implement the
+            physics system. In particular, I plan on implementing force fields
+            for modeling things like gravitational and magnetic fields (Similar
+            to what's done in
+            <a href="https://www.mariowiki.com/Gravity_field"
+              >Super Mario Galaxy</a
+            >).
           </p>
         </section>
         <section id="functionality" name="Functionality">
           <h2>What can it do?</h2>
-          <p>Since I recently decided to convert this project to a game engine, it only supports a humble set of features outside of graphics.
-            I am actively working on improving the terrain that is currently implemented, and plan on adding a physics simulation once I like the terrain implementation.
-            This project currently supports loading models, rendering terrain from a heightmap, rendering simple lighting (phong lighting), 
-            and sampling terrain height for collision. </p>
+          <p>
+            Since I recently decided to convert this project to a game engine,
+            it only supports a humble set of features outside of graphics. I am
+            actively working on improving the terrain that is currently
+            implemented, and plan on adding a physics simulation once I like the
+            terrain implementation. This project currently supports loading
+            models, rendering terrain from a heightmap, rendering simple
+            lighting (phong lighting), and sampling terrain height for
+            collision. I am currently working on implementing a terrain chunking
+            system. This will allow me to implement a LOD system that can
+            dynamically swap lower and higher resolution terrain meshes in the
+            future to improve performance. I intend to implement the LOD using
+            chunk mipmapping.
+          </p>
         </section>
         <section id="demo" name="Demo">
           <h2>Demo</h2>
@@ -109,12 +133,19 @@
         </section>
         <section id="technical" name="Technical Details">
           <h2>How was it made?</h2>
-          <p>This project is written in C++. It uses a couple of libraries for small tasks and multi platform support. 
-            It uses <a href="https://www.glfw.org/">GLFW</a> and <a href="https://glad.dav1d.de/">GLAD</a> to simplify using OpenGL on different platforms, 
-            and <a href="https://glm.g-truc.net/0.9.9/index.html">GLM</a> for matrix and vector math.
-            It also uses <a href="https://github.com/nothings/stb/blob/master/stb_image.h">stb_image</a> to load raw image data. 
-            <a href="https://assimp.org/">ASSIMP</a> is used to load raw model data into custom model classes.
-
+          <p>
+            This project is written in C++. It uses a couple of libraries for
+            small tasks and multi platform support. It uses
+            <a href="https://www.glfw.org/">GLFW</a> and
+            <a href="https://glad.dav1d.de/">GLAD</a> to simplify using OpenGL
+            on different platforms, and
+            <a href="https://glm.g-truc.net/0.9.9/index.html">GLM</a> for matrix
+            and vector math. It also uses
+            <a href="https://github.com/nothings/stb/blob/master/stb_image.h"
+              >stb_image</a
+            >
+            to load raw image data. <a href="https://assimp.org/">ASSIMP</a> is
+            used to load raw model data into custom model classes.
           </p>
         </section>
       </article>

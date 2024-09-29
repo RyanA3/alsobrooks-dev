@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>alsobrooks.dev</title>
+    <title>alsobrooks.dev Projects</title>
     <link rel="stylesheet" href="styles/nav.css" />
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="icon" href="img/favicon.png" />
@@ -63,7 +63,8 @@
         transition: box-shadow 0.5s;
       }
 
-      .project-list > a:hover {
+      .project-list > a:hover,
+      .project-list > a:active {
         box-shadow: 0px 0px 20px rgb(150, 200, 150);
         transition: box-shadow 0.5s;
       }
@@ -155,34 +156,34 @@
     <div class="content">
       <main class="project-list">
         <h1>My Projects</h1>
-	<a href="https://devpost.com/software/study-ai-9ql2nb">
-	  <img src="img/studyai.png" />
-	  <div>
-	    <h2>Study.AI</h2>
-	    <p>
-	      <i>MHacks 2024</i><br /><br />
-	      A set of convenient study tools leveraging Google's new LLM
-	      engine Breadboard. Create an interactive study guide from your
-	      notes or generate other useful study tools such as flash cards.
-	    </p>
-	  </div>
-	</a>
+        <a href="https://devpost.com/software/study-ai-9ql2nb">
+          <img src="img/studyai.png" />
+          <div>
+            <h2>Study.AI</h2>
+            <p>
+              <i>MHacks 2024</i><br /><br />
+              A set of convenient study tools leveraging Google's new LLM engine
+              Breadboard. Create an interactive study guide from your notes or
+              generate other useful study tools such as flash cards.
+            </p>
+          </div>
+        </a>
         <a href="projects/model-renderer.html">
           <img src="img/model-renderer.png" />
           <div>
             <h2>Custom Game Engine</h2>
             <p>
               <i>2022-Present</i><br /><br />
-              A minimal 3d game engine written in C++ with OpenGL. It
-              has first-person controllable camera, and renders light sources
-              using the Phong lighting model.
+              A minimal 3d game engine written in C++ with OpenGL. It has
+              first-person controllable camera, and renders light sources using
+              the Phong lighting model.
             </p>
           </div>
         </a>
         <a href="projects/image-server.html">
           <img src="img/familyimageserver.png" />
           <div>
-            <h2>Custom Image Server</h2>
+            <h2>Image Server & Deduplicator</h2>
             <p>
               <i>2023</i><br /><br />
               A lightweight custom server software designed for managing large
@@ -200,6 +201,18 @@
               A software-rendered pixelated paint program running on a custom
               game engine in Java. I built this project when I was first
               becoming interested in game engine development.
+            </p>
+          </div>
+        </a>
+        <a href="projects/tortoise-investing.html">
+          <img src="img/tortoise-investing.png" />
+          <div>
+            <h2>Tortoise Investing</h2>
+            <p>
+              <i>2024</i><br /><br />
+              A web utility created during the GrizzHacks 6 hackathon. It lets
+              you compare the doller-cost averaging investment strategy to a
+              simple savings account for the stock index of your choice.
             </p>
           </div>
         </a>

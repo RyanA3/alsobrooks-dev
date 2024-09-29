@@ -1,0 +1,58 @@
+.content {
+  padding: 5%;
+  background-color: rgb(240, 240, 240);
+}
+
+.trips-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto);
+  gap: 2em;
+}
+
+.trips-container > a {
+  text-decoration: none;
+}
+
+.trip-card {
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  box-shadow: 0px 0px 5px rgb(150, 200, 150);
+  background-color: white;
+  transition: box-shadow 0.5s;
+}
+
+.trip-card:hover,
+.trip-card:active {
+  box-shadow: 0px 0px 20px rgb(150, 200, 150);
+  transition: box-shadow 0.5s;
+}
+
+.trip-card > h1,
+.trip-card > h2,
+.trip-card > p,
+.trip-card > a {
+  color: black;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.5em;
+}
+
+.trip-card > img {
+  width: 100%;
+  box-shadow: 0px 0px 6px rgb(100, 200, 100);
+}
+
+@media (max-width: 800px) {
+  .trips-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .trips-container {
+    grid-template-columns: 1fr;
+  }
+}
