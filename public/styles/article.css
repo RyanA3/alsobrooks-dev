@@ -1,16 +1,18 @@
 .content {
-  padding: 3% 15%;
-  background-color: rgb(240, 240, 240);
+  padding: 0% 10%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
 }
 
 article {
-  padding: 5%;
+  padding: 40px 5%;
   background-color: white;
-  box-shadow: 0px 0px 10px rgb(150, 200, 150);
+  max-width: 800px;
 }
 
 section {
-  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 section,
@@ -37,6 +39,7 @@ h1,
 h2 {
   margin: 0;
 }
+
 
 .article-nav {
   display: flex;
